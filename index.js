@@ -1,5 +1,11 @@
 function fetchBooks() {
-
+  const configObj = {
+    mode: "cors",
+    headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+  }
+  return fetch('https://anapioficeandfire.com/api/books', configObj)
+    .then(res => res.json())
+    .then(json => renderBooks(json))
 }
 
 function renderBooks(books) {
